@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<title>Mur virtuel blanc</title>
+<style>
+    html,body { height:100%; margin:0; background:#fff; }
+    /* zone visible (viewport) : stage */
+    #stage {
+      position:fixed;
+      inset:0;                 /* occupe tout l'écran */
+      display:flex;
+      align-items:center;
+      justify-content:center;  /* centre le mur */
+      overflow:visible;        /* important : ne pas clipper l'ombre */
+      background:#fff;         /* reste blanc si tu veux */
+    }
+
+    /* le "mur" : zone sur laquelle sont posées les images */
+    #wall {
+      width:4000px;   /* taille réelle du mur (à adapter) */
+      height:2000px;
+      position:relative;
+      background:#ffffff;
+      border-radius:0px;
+      /* ombre autour du mur (visible sur tous les côtés) */
+      box-shadow: 0 30px 80px rgba(0,0,0,0.90);
+      /* optionnel : léger contour */
+      border:1px solid rgba(0,0,0,0.04);
+      will-change: transform; /* aide la perf pendant le pan/zoom */
+    }
+  .art {
+      background-size: cover;
+      background-position: center;
+      box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.50); /* ombre en bas et à droite */
+  }
+    
+    .frame {
+      position: absolute;
+      font-family: 'Georgia', serif;
+      color: #333;
+    }
+
+    .art {
+      background-size: cover;
+      background-position: center;
+      box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.5);
+      width: 100%;
+
+    }
+
+    .label {
+        display: inline-block; /* s'ajuste au contenu */
+        float: right;
+      background: rgba(255 255 255 / 0.95);
+      padding: 10px 15px;
+      margin-top: 20px;
+      border-radius: 0px;
+      box-shadow: 6px 6px 10px rgb(0, 0, 0, 0.25);
+      font-size: 5px;
+      line-height: 1.3;
+      text-align: right;   /* texte aligné à droite */
+    }
+    
+    .wall-title {
+      position: absolute;
+      top: 50px;  /* distance du haut du mur */
+      left: 50px; /* distance du bord gauche du mur */
+      font-family: 'Georgia', serif;
+      font-size: 28px;
+      color: #333;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 10px 15px;
+      max-width: 500px;
+    }
+    .wall-title a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+    .wall-title a:hover {
+      text-decoration: underline;
+    }
+    
+</style>
+</head>
+<body>
+
+<div id="container">
+  <div id="wall">
+    
+    <div class="wall-title">
+      Site internet<br/> des peintures<br/> de<br/> Victor Gobbé<br/>
+      <a href="index.html" target="index"> Acheter</a>
+    </div>
+    <div class="frame" style="position:absolute; left: 600px; top: 285px; width: 410px;">
+        <div class="art"
+            style="background-image: url('images/Mur/8_EntreKergleuzEtKeraliou_MurSite.png');     
+                width: 410px; 
+                height: 330px; 
+                border: 8px solid #fecd65; 
+            box-shadow: 6px 6px 10px rgba(160, 82, 45, 0.5);"></div>
+        <div class="label">
+            <strong>𝐵𝑜𝑢𝑐ℎ𝑜𝑛𝑠 𝑎𝑝𝑟𝑒̀𝑠 𝑅𝑜𝑐'ℎ 𝐾𝑒𝑟𝑒𝑧𝑒𝑛</strong><br/>
+            Acrylique sur toile<br/>
+            54 x 65 cm<br/>
+            2023
+        </div>
+    </div>
+    
+    <div class="frame" style="position:absolute; left: 1300px; top: 180px; width: 650px;">
+        <div class="art"
+            style="background-image: url('images/Mur/7_BouchonsAprèsRochKerezen_MurSite.png');     
+                width: 650px; 
+                height: 540px; 
+                border: 8px solid #fecd65; 
+            box-shadow: 6px 6px 10px rgba(160, 82, 45, 0.5);"></div>
+        <div class="label">
+            <strong>𝐸𝑛𝑡𝑟𝑒 𝐾𝑒𝑟𝑔𝑙𝑒𝑢𝑧 𝑒𝑡 𝐾𝑒𝑟𝑎𝑙𝑖𝑜𝑢</strong><br/>
+            Acrylique sur toile<br/>
+            33 x 41 cm<br/>
+            2023
+        </div>
+    </div>
+    
+    <div class="frame" style="position:absolute; left: 2250px; top: 250px; width: 550px;">
+        <div class="art"
+            style="background-image: url('images/Mur/6_RondPointDesFoulques_MurSite.png');  
+                width: 550px; 
+                height: 460px; 
+                border: 8px solid #fecd65; 
+            box-shadow: 6px 6px 10px rgba(160, 82, 45, 0.5);"></div>
+        <div class="label">
+            <strong>𝑅𝑜𝑛𝑑-𝑃𝑜𝑖𝑛𝑡 𝑑𝑒𝑠 𝐹𝑜𝑢𝑙𝑞𝑢𝑒𝑠</strong><br/>
+            Acrylique sur toile<br/>
+            46 x 55 cm<br/>
+            2023
+        </div>
+    </div>
+    
+    <div class="frame" style="position:absolute; left: 3100px; top: 250px; width: 550px;">
+        <div class="art"
+            style="background-image: url('images/Mur/5_ApresKergaeric_MurSite.png');  
+                width: 550px; 
+                height: 460px; 
+                border: 8px solid #fecd65; 
+            box-shadow: 6px 6px 10px rgba(160, 82, 45, 0.5);"></div>
+        <div class="label">
+            <strong>𝐴𝑝𝑟𝑒̀𝑠 𝐾𝑒𝑟𝑔𝑎𝑒𝑟𝑖𝑐</strong><br/>
+            Acrylique sur toile<br/>
+            46 x 55 cm<br/>
+            2023
+        </div>
+    </div>
+    
+    <div class="frame" style="position:absolute; left: 350px; top: 1000px; width: 550px;">
+        <div class="art"
+            style="background-image: url('images/Mur/4_EntreKernevezEtPontaol_MurSite.png');  
+                width: 550px; 
+                height: 460px; 
+                border: 8px solid #fecd65; 
+            box-shadow: 6px 6px 10px rgba(160, 82, 45, 0.5);"></div>
+        <div class="label">
+            <strong>𝐸𝑛𝑡𝑟𝑒 𝐾𝑒𝑟𝑛𝑒𝑣𝑒𝑧 𝑒𝑡 𝑃𝑜𝑛𝑡𝑎𝑜𝑙</strong><br/>
+            Acrylique sur toile<br/>
+            46 x 55 cm<br/>
+            2022
+        </div>
+    </div>
+    
+    <div class="frame" style="position:absolute; left: 1200px; top: 1000px; width: 550px;">
+        <div class="art"
+            style="background-image: url('images/Mur/3_JusteAvantKernevez_MurSite.png');  
+                width: 550px; 
+                height: 460px; 
+                border: 8px solid #fecd65; 
+            box-shadow: 6px 6px 10px rgba(160, 82, 45, 0.5);"></div>
+        <div class="label">
+            <strong>𝐽𝑢𝑠𝑡𝑒 𝑎𝑣𝑎𝑛𝑡 𝐾𝑒𝑟𝑛𝑒𝑣𝑒𝑧</strong><br/>
+            Acrylique sur toile<br/>
+            46 x 55 cm<br/>
+            2022
+        </div>
+    </div>
+    
+    <div class="frame" style="position:absolute; left: 2000px; top: 1050px; width: 500px;">
+        <div class="art"
+            style="background-image: url('images/Mur/2_VerriereEtArbre_MurSite.png');     width: 500px; 
+                height: 400px; 
+                border: 8px solid #fecd65; 
+            box-shadow: 6px 6px 10px rgba(160, 82, 45, 0.5);"></div>
+        <div class="label">
+            <strong>𝑉𝑒𝑟𝑟𝑖𝑒̀𝑟𝑒 𝑒𝑡 𝑎𝑟𝑏𝑟𝑒</strong><br/>
+            Acrylique sur toile<br/>
+            40 x 50 cm<br/>
+            2022
+        </div>
+    </div>
+    
+    <div class="frame" style="position:absolute; left: 2750px; top: 1050px; width: 500px;">
+        <div class="art"
+            style="background-image: url('images/Mur/1_ArbreEtVerriere_MURSITE.png');     width: 500px; 
+                height: 400px; 
+                border: 8px solid #fecd65; 
+            box-shadow: 6px 6px 10px rgba(160, 82, 45, 0.5);"></div>
+        <div class="label">
+            <strong>𝐴𝑟𝑏𝑟𝑒 𝑒𝑡 𝑣𝑒𝑟𝑟𝑖𝑒̀𝑟𝑒</strong><br/>
+            Acrylique sur toile<br/>
+            40 x 50 cm<br/>
+            2022
+        </div>
+    </div>
+    
+    
+    
+  </div>
+</div>
+
+<script src="https://unpkg.com/@panzoom/panzoom/dist/panzoom.min.js"></script>
+<script>
+  const elem = document.getElementById('wall');
+  const panzoom = Panzoom(elem, {
+      maxScale: 10,    // zoom maximum x10
+      minScale: 0.1,   // zoom minimum très petit (10% de la taille)
+      contain: false,  // pas de restriction sur le déplacement
+  });
+    // Centrer le mur au chargement
+    panzoom.zoom(1);  // zoom 100%
+    panzoom.pan(
+      -window.innerWidth / 2 + elem.clientWidth / 2,
+      -window.innerHeight / 2 + elem.clientHeight / 2
+    );
+  // Zoom avec molette sur le parent
+  elem.parentElement.addEventListener('wheel', panzoom.zoomWithWheel);
+</script>
+
+</body>
+</html>

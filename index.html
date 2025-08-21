@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Victor Gobbé - Boutique</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2em;
+      background: #f8f8f8;
+      font-family: sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2em;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2em;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery a {
+      display: block;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img {
+      width: 100%;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery a:hover img {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+
+<body>
+
+    <a href="accueil.html" style="
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 18px;
+      color: #333;
+      text-decoration: none;
+    ">
+      ⬅ Retour aux peintures
+    </a>
+
+  <h1>Boutique</h1>
+
+  
+  <div class="gallery">
+      <a href="sortie66.html">
+        <img src="images/JusteAvantKernevez(sortie66).png" alt="Nuit rose">
+      </a>
+      <a href="sortie65.html">
+        <img src="images/EntreKernevezetPontaol(sortie65).png" alt="Lisière">
+      </a>
+    <a href="sortie61.html">
+      <img src="images/AprèsKergaeric(sortie61).png" alt="Poussière florale">
+    </a>
+    <a href="foulques.html">
+      <img src="images/Rond-PointDesFoulques.png" alt="Nuit rose">
+    </a>
+    <a href="sortie71.html">
+      <img src="images/BouchonsAprèsRoc'hKerezen(sortie71).png" alt="Nuit rose">
+    </a>
+    <a href="iroise.html">
+      <img src="images/EntreKergleuzEtKeraliou.png" alt="Nuit rose">
+    </a>
+    
+    <!-- Ajoute autant d’images que tu veux -->
+  </div>
+
+</body>
+
+<footer style="
+  margin-top: 3em;
+  padding: 1em;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+">
+
+Je n'ai pas encore mis au point de systeme de paniers, paiement par cartes, etc.  <br>Si vous voulez investir contactez moi la : victor.gobbe@proton.me
+  <br>
+</footer>
+</html>
